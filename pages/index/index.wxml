@@ -1,2 +1,2 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<canvas canvas-id="mainCanvas" style="width: {{_canvas.w}}px;height: {{_canvas.h}}px"></canvas>
