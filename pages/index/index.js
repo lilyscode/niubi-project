@@ -1,6 +1,8 @@
+
+const app = getApp();
+
 // pages/index/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -8,7 +10,8 @@ Page({
     _canvas: {
       w: 100,
       h: 100
-    }
+    },
+    cvsCtx: {}
   },
 
   /**
@@ -17,7 +20,12 @@ Page({
   onLoad: function (options) {
     this.getUserInfo();
     this.setCanvasWH();
-    
+    var cvsCtx = wx.createCanvasContext('mainCanvas', this);
+    // Note that the global Object 'g_cvsCtx' and local Object 'cvsCtx' are reference type, public memory.
+    app.globalData.g_cvsCtx = cvsCtx;
+    this.setData({
+      cvsCtx: cvsCtx
+    });
   },
 
   /**
