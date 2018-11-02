@@ -1,6 +1,6 @@
 
 const app = getApp();
-
+import _ctx_ from '../../utils/draw/index.js';
 // pages/index/index.js
 Page({
   /**
@@ -26,6 +26,7 @@ Page({
     this.setData({
       cvsCtx: cvsCtx
     });
+    console.log('global Ctx: ', _ctx_());
   },
 
   /**
