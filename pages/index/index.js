@@ -1,6 +1,7 @@
 
 const app = getApp();
-import _ctx_ from '../../utils/draw/index.js';
+import Ctx from '../../utils/draw/index';
+let _ctx_ = new Ctx();
 // pages/index/index.js
 Page({
   /**
@@ -20,13 +21,14 @@ Page({
   onLoad: function (options) {
     this.getUserInfo();
     this.setCanvasWH();
-    var cvsCtx = wx.createCanvasContext('mainCanvas', this);
+    let cvsCtx = wx.createCanvasContext('mainCanvas', this);
     // Note that the global Object 'g_cvsCtx' and local Object 'cvsCtx' are reference type, public memory.
     app.globalData.g_cvsCtx = cvsCtx;
     this.setData({
       cvsCtx: cvsCtx
     });
-    console.log('global Ctx: ', _ctx_());
+    console.log('global Ctx: ', _ctx_.consoleName());
+    _ctx_.consoleName();
   },
 
   /**
